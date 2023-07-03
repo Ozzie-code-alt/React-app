@@ -1,8 +1,8 @@
-import Message from "./Message"; //import
+import ListGroup from "./components/ListGroup"
 
 //components "APP"
 function App(){
-return <div> <Message /></div>// call Message Function from Message tsx 
+return <div> <ListGroup/></div>// call Message Function from Message tsx 
 
 }
 
