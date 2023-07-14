@@ -5,12 +5,13 @@ import { Fragment, useState } from "react"
 interface Props{
   items: string[];
   heading: string;
+  onSelectedItem: (item: string) => void// Passing function prop then go to App.tsx and configure listgroup component 
 }
 
 
 
 
-function ListGroup({items,heading}: Props) {
+function ListGroup({items,heading, onSelectedItem}: Props) {
 
 // let selectedIndex = 0 // means no item is selected
 // Hook allows us to built in features in react
@@ -53,7 +54,11 @@ const getMessage = () =>{
               key={item}
               // onClick={(event) => console.log(item ,index)}
               // onClick={handleClick} //
-              onClick={() => {setSelectedIndex(index)}}
+              onClick={() => {setSelectedIndex(index)
+              onSelectedItem(item)
+
+              }}
+           
             >
               {item}{" "}
             </li>
