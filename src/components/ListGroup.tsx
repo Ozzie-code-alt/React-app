@@ -1,5 +1,5 @@
-import { Fragment } from "react"
-import { MouseEvent } from "react";
+import { Fragment, useState } from "react"
+// import { MouseEvent } from "react";
 function ListGroup() {
 let items = [
     'NewYork',
@@ -8,6 +8,11 @@ let items = [
     'Tokyo',
     'London',
 ]
+// let selectedIndex = 0 // means no item is selected
+// Hook allows us to built in features in react
+const [selectedIndex, setSelectedIndex] = useState(-1)// this will tell us that we have state that will change overtime
+
+
 // items = []
 // const message = items.length ==0 ? <p>No Item </p> : null // make it here
 
@@ -23,7 +28,7 @@ const getMessage = () =>{
 
 //seperate function for onClick instead of inline
 // event handler
-const handleClick  = (event: MouseEvent) => console.log(event)  // type anotation in typescript
+// const handleClick  = (event: MouseEvent) => console.log(event)  // type anotation in typescript
 
 
     return (
@@ -40,10 +45,11 @@ const handleClick  = (event: MouseEvent) => console.log(event)  // type anotatio
               <li className="list-group-item">And a fifth one</li>  with Braces {} we can render anything dynamicallly instead of just html elements */}
           {items.map((item, index) => (
             <li
-              className="list-group-item"
+              className={selectedIndex === index ? 'list-group-item active' : 'list-group-item'}
               key={item}
               // onClick={(event) => console.log(item ,index)}
-              onClick={handleClick} //
+              // onClick={handleClick} //
+              onClick={() => {setSelectedIndex(index)}}
             >
               {item}{" "}
             </li>
