@@ -1,13 +1,17 @@
 import { Fragment, useState } from "react"
 // import { MouseEvent } from "react";
-function ListGroup() {
-let items = [
-    'NewYork',
-    'SanFrancisco',
-    'Philippines',
-    'Tokyo',
-    'London',
-]
+// Props 
+// {items: [], heading: string}
+interface Props{
+  items: string[];
+  heading: string;
+}
+
+
+
+
+function ListGroup({items,heading}: Props) {
+
 // let selectedIndex = 0 // means no item is selected
 // Hook allows us to built in features in react
 const [selectedIndex, setSelectedIndex] = useState(-1)// this will tell us that we have state that will change overtime
@@ -36,7 +40,7 @@ const getMessage = () =>{
         {/* use fragmentation instead* or use <>/}
              {/* this wont work because because a return will only return 1 element and this gets parsed to js as React.CreateElement('h1')*/}
         <ul className="list-group">
-          <h1>List</h1>
+          <h1>{heading}</h1>
           {getMessage()} {/* {message}  render here */}
           {/* <li className="list-group-item">An item</li>
               <li className="list-group-item">A second item</li>
